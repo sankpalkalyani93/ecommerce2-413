@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>My Cart</title>
+    </head>
+    <body>
+        <h2>Cart</h2>
+        <ul>
+            {% for item in order.orderitem_set.all %}
+                <li><p> Product Name : {{ item.product.name }} </p>
+                    <p> Product Quantity :  {{ item.quantity }} </p>
+                    <p> Product Price : {{ item.product.price }}</p>
+                </li>
+            {% endfor %}
+            
+        </ul>
+        <p>The total : Rs. {{ order.get_total_price }}</p>
+        <a href="{% url 'checkout' %}">Proceed to Checkout</p>
+    </body>
+</html>
